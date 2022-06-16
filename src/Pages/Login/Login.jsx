@@ -1,11 +1,13 @@
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
+import useLogin from '../../Hooks/useLogin';
 import './Login.css'
 
 export default function Login() {
     const showPassword = useRef();
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [login, isPending, error] = useLogin()
 
     const handleShowPassword = (e) => {
         (e.target.checked == !true) ?
@@ -15,7 +17,8 @@ export default function Login() {
     }
     const handleFormSubmit = (e) => {
         e.preventDefault()
-        console.log(username, password);
+        // console.log(username, password);
+        login(username, password)
     }
     return (
         <div>

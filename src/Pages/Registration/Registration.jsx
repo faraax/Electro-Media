@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import useSignup from '../../Hooks/useSignup';
 import './Registration.css'
 
 export default function Registration() {
@@ -8,6 +9,8 @@ export default function Registration() {
   const [password, setPassword] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
+  const [signup, isPending, error, message] = useSignup()
+
 
   const handleShowPassword = (e) => {
     (e.target.checked == !true) ?
@@ -18,7 +21,9 @@ export default function Registration() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
-    console.log(username, password, firstName, lastName);
+    const name = firstName + " " + lastName;
+    signup(name, username, password)
+    console.log(name);
   }
 
   return (
@@ -65,9 +70,21 @@ export default function Registration() {
                           {/* <div className="invalid-feedback">You must agree before submitting.</div> */}
                         </div>
                       </div>
-                      <div className="col-12">
-                        <button className="btn btn-primary w-100" type="submit">Create Account</button>
-                      </div>
+                      {
+                        !isPending && (
+                          <div className="col-12">
+                            <button className="btn btn-primary w-100" type="submit">Create Account</button>
+                          </div>
+                        )
+                      }
+                      {
+                        isPending && (
+                          <div className="col-12">
+                            <button className="btn btn-primary w-100" type="submit">Loading</button>
+                          </div>
+                        )
+                      }
+                      {/* <div className="invalid-feedback">You must agree before submitting.</div> */}
                       <div className="col-12">
                         <p className="small mb-0">Already have an account? <Link to={'/login'}>Log in</Link></p>
                       </div>
