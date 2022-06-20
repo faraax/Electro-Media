@@ -29,3 +29,7 @@ h5,
 h6 {
   font-family: "Nunito", sans-serif;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}

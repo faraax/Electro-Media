@@ -73,7 +73,17 @@ export default function Registration() {
                       {
                         !isPending && (
                           <div className="col-12">
-                            <button className="btn btn-primary w-100" type="submit">Create Account</button>
+                            <button className="btn btn-primary w-100" type="submit">
+                              {!isPending && 'Create Account'}
+                              {
+                                isPending && (
+                                  <>
+                                    <span class="spinner-border spinner-border-sm mx-2" role="status" aria-hidden="true"></span>
+                                    Loading...
+                                  </>
+                                )
+                              }
+                            </button>
                           </div>
                         )
                       }

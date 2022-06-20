@@ -55,7 +55,17 @@ export default function Login() {
                                                     </div>
                                                 </div>
                                                 <div className="col-12">
-                                                    <button className="btn btn-primary w-100" type="submit">Login</button>
+                                                    <button className="btn btn-primary w-100" type="submit">
+                                                        {!isPending && 'Login'}
+                                                        {
+                                                            isPending && (
+                                                                <>
+                                                                    <span class="spinner-border spinner-border-sm mx-2" role="status" aria-hidden="true"></span>
+                                                                    Loading...
+                                                                </>
+                                                            )
+                                                        }
+                                                    </button>
                                                 </div>
                                                 <div className="col-12">
                                                     <p className="small mb-0">Don't have account? <Link to="/registration">Create an account</Link></p>

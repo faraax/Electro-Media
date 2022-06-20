@@ -343,7 +343,7 @@
 }
 
 .logo img {
-  max-height: 26px;
+  max-height: 48px;
   margin-right: 6px;
 }
 
@@ -532,6 +532,7 @@
 .header-nav .profile {
   min-width: 240px;
   padding-bottom: 0;
+  /* margin-top: 2%; */
 }
 
 .header-nav .profile .dropdown-header h6 {

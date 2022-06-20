@@ -4,7 +4,6 @@ import useSignout from '../../Hooks/useSignout'
 import './Home.css'
 
 export default function Home() {
-  const [logout, isPending, error] = useSignout()
   return (
     <div>
       {/* Signout
